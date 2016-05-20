@@ -1,11 +1,15 @@
 wordpress:
-  image: wordpress:4.5.2-fpm
+  image: wordpress
   links:
     - db:mysql
   ports:
-    - 8080:80
+    - 8000:80
+  volumes:
+    - /var/www/nachum234.com:/var/www/html
 
 db:
   image: mariadb
   environment:
     MYSQL_ROOT_PASSWORD: humus234
+  volumes:
+    - /var/lib/mysql:/var/lib/mysql
